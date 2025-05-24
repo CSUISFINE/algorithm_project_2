@@ -393,9 +393,9 @@ vector<int> SA_3opt(const vector<int>& initial_circuit, const vector<City>& citi
     double T_init = -avg_delta_E_pos / log(P_init_accept);
     cout << "T_init: "<< T_init << endl;
     double T_final = 0.1;
-    double alpha = 0.95;
-    double K = 0.01;
-    int L = num_cities * 0.5;
+    double alpha = 0.9995;
+    double K = 1;
+    int L = num_cities * 10;
     double T_high_transition = T_init * 0.5;
     int iter = 0;
     double T = T_init;
@@ -499,7 +499,7 @@ double calculate_avg_delta_E_positive(const vector<int>& initial_circuit, const 
 
 
 int main() {
-    string filename = "mona-lisa100K.tsp";
+    string filename = "xql662.tsp";
     vector<City> cities = load_tsp(filename);
 
     if (cities.empty()) {
@@ -536,7 +536,7 @@ int main() {
     //     cout << cities[hamil_circ_pm[i]].id << (i == hamil_circ_pm.size() - 1 ? "" : " -> ");
     // }
     double final_cost_pm = calculate_cost(hamil_circ_pm, cities);
-    double optimal_tour_cost = 2579.0;
+    double optimal_tour_cost = 2513.0;
     cout << "\nTotal TSP tour cost (Christofides with Greedy Matching): " << fixed << setprecision(2) << final_cost_pm << endl;
     cout << "Approximation Ratio (Greedy Matching Tour Cost / optimal value): " << fixed << setprecision(3) << final_cost_pm / optimal_tour_cost << endl;
     
