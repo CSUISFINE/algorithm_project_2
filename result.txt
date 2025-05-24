@@ -1,0 +1,332 @@
+=== Runtime Measurement for a280.tsp ===
+Dataset size: 280 cities
+Known Optimal Cost: 2579.00
+Number of runs per algorithm: 10
+
+
+--- 2-Approximation Algorithm ---
+  Run 1: Cost = 3484.85, Time = 0.000858 s
+  Run 2: Cost = 3484.85, Time = 0.000819 s
+  Run 3: Cost = 3484.85, Time = 0.000786 s
+  Run 4: Cost = 3484.85, Time = 0.000787 s
+  Run 5: Cost = 3484.85, Time = 0.000797 s
+  Run 6: Cost = 3484.85, Time = 0.000791 s
+  Run 7: Cost = 3484.85, Time = 0.000800 s
+  Run 8: Cost = 3484.85, Time = 0.000800 s
+  Run 9: Cost = 3484.85, Time = 0.000808 s
+  Run 10: Cost = 3484.85, Time = 0.000797 s
+
+--- Christofides (Greedy Matching) ---
+  Run 1: Cost = 2887.30, Time = 0.000852 s
+  Run 2: Cost = 2887.30, Time = 0.000798 s
+  Run 3: Cost = 2887.30, Time = 0.000781 s
+  Run 4: Cost = 2887.30, Time = 0.000803 s
+  Run 5: Cost = 2887.30, Time = 0.000788 s
+  Run 6: Cost = 2887.30, Time = 0.000793 s
+  Run 7: Cost = 2887.30, Time = 0.000802 s
+  Run 8: Cost = 2887.30, Time = 0.000789 s
+  Run 9: Cost = 2887.30, Time = 0.000813 s
+  Run 10: Cost = 2887.30, Time = 0.000797 s
+
+--- SA with 3-Opt (initialized by Christofides) ---
+  SA Run 1/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 1 completed: Cost = 2593.93, Time = 7.773s
+  SA Run 2/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 2 completed: Cost = 2593.93, Time = 8.600s
+  SA Run 3/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 3 completed: Cost = 2617.19, Time = 8.811s
+  SA Run 4/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 4 completed: Cost = 2616.01, Time = 8.380s
+  SA Run 5/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 5 completed: Cost = 2614.27, Time = 8.871s
+  SA Run 6/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 6 completed: Cost = 2594.21, Time = 9.394s
+  SA Run 7/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 7 completed: Cost = 2613.45, Time = 8.760s
+  SA Run 8/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 8 completed: Cost = 2593.20, Time = 8.973s
+  SA Run 9/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 9 completed: Cost = 2614.42, Time = 9.101s
+  SA Run 10/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 10 completed: Cost = 2602.49, Time = 9.414s
+
+
+====== SUMMARY for a280.tsp ======
+Optimal Cost: 2579.00
+
+--- 2-Approximation Algorithm ---
+Avg Cost:   3484.8534 (Ratio: 1.3512)
+Best Cost:  3484.8534 (Ratio: 1.3512)
+Avg Time:   0.000804 s
+
+--- Christofides (Greedy Matching) ---
+Avg Cost:   2887.300737 (Ratio: 1.119543)
+Best Cost:  2887.300737 (Ratio: 1.119543)
+Avg Time:   0.000802 s
+
+--- SA with 3-Opt ---
+Avg Cost:   2605.309362 (Ratio: 1.010201)
+Best Cost:  2593.204159 (Ratio: 1.005508)
+Avg Time:   8.807809 s
+====================================
+
+--------------------------------------------------
+
+
+=== Runtime Measurement for xql662.tsp ===
+Dataset size: 662 cities
+Known Optimal Cost: 2513.00
+Number of runs per algorithm: 10
+
+
+--- 2-Approximation Algorithm ---
+  Run 1: Cost = 3526.54, Time = 0.005911 s
+  Run 2: Cost = 3526.54, Time = 0.005969 s
+  Run 3: Cost = 3526.54, Time = 0.005984 s
+  Run 4: Cost = 3526.54, Time = 0.006014 s
+  Run 5: Cost = 3526.54, Time = 0.005785 s
+  Run 6: Cost = 3526.54, Time = 0.005800 s
+  Run 7: Cost = 3526.54, Time = 0.006205 s
+  Run 8: Cost = 3526.54, Time = 0.005928 s
+  Run 9: Cost = 3526.54, Time = 0.005846 s
+  Run 10: Cost = 3526.54, Time = 0.005896 s
+
+--- Christofides (Greedy Matching) ---
+  Run 1: Cost = 2923.53, Time = 0.005902 s
+  Run 2: Cost = 2923.53, Time = 0.005915 s
+  Run 3: Cost = 2923.53, Time = 0.005637 s
+  Run 4: Cost = 2923.53, Time = 0.005963 s
+  Run 5: Cost = 2923.53, Time = 0.005892 s
+  Run 6: Cost = 2923.53, Time = 0.005839 s
+  Run 7: Cost = 2923.53, Time = 0.006033 s
+  Run 8: Cost = 2923.53, Time = 0.006071 s
+  Run 9: Cost = 2923.53, Time = 0.005913 s
+  Run 10: Cost = 2923.53, Time = 0.006002 s
+
+--- SA with 3-Opt (initialized by Christofides) ---
+  SA Run 1/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 1 completed: Cost = 2621.15, Time = 23.688s
+  SA Run 2/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 2 completed: Cost = 2600.69, Time = 24.994s
+  SA Run 3/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 3 completed: Cost = 2600.03, Time = 24.583s
+  SA Run 4/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 4 completed: Cost = 2601.03, Time = 24.249s
+  SA Run 5/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 5 completed: Cost = 2588.68, Time = 24.548s
+  SA Run 6/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 6 completed: Cost = 2601.56, Time = 24.928s
+  SA Run 7/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 7 completed: Cost = 2602.45, Time = 24.464s
+  SA Run 8/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 8 completed: Cost = 2609.69, Time = 24.224s
+  SA Run 9/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 9 completed: Cost = 2588.68, Time = 24.643s
+  SA Run 10/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 10 completed: Cost = 2565.28, Time = 24.967s
+
+
+====== SUMMARY for xql662.tsp ======
+Optimal Cost: 2513.00
+
+--- 2-Approximation Algorithm ---
+Avg Cost:   3526.5416 (Ratio: 1.4033)
+Best Cost:  3526.5416 (Ratio: 1.4033)
+Avg Time:   0.005934 s
+
+--- Christofides (Greedy Matching) ---
+Avg Cost:   2923.533134 (Ratio: 1.163363)
+Best Cost:  2923.533134 (Ratio: 1.163363)
+Avg Time:   0.005917 s
+
+--- SA with 3-Opt ---
+Avg Cost:   2597.924748 (Ratio: 1.033794)
+Best Cost:  2565.279806 (Ratio: 1.020803)
+Avg Time:   24.528782 s
+====================================
+
+--------------------------------------------------
+
+
+=== Runtime Measurement for kz9976.tsp ===
+Dataset size: 9976 cities
+Known Optimal Cost: 1061881.00
+Number of runs per algorithm: 10
+
+
+--- 2-Approximation Algorithm ---
+  Run 1: Cost = 1457223.52, Time = 0.618425 s
+  Run 2: Cost = 1457223.52, Time = 0.613335 s
+  Run 3: Cost = 1457223.52, Time = 0.600320 s
+  Run 4: Cost = 1457223.52, Time = 0.609212 s
+  Run 5: Cost = 1457223.52, Time = 0.662336 s
+  Run 6: Cost = 1457223.52, Time = 0.630849 s
+  Run 7: Cost = 1457223.52, Time = 0.628755 s
+  Run 8: Cost = 1457223.52, Time = 0.624580 s
+  Run 9: Cost = 1457223.52, Time = 0.637266 s
+  Run 10: Cost = 1457223.52, Time = 0.646034 s
+
+--- Christofides (Greedy Matching) ---
+  Run 1: Cost = 1235401.91, Time = 0.625275 s
+  Run 2: Cost = 1235401.91, Time = 0.623454 s
+  Run 3: Cost = 1235401.91, Time = 0.620508 s
+  Run 4: Cost = 1235401.91, Time = 0.618609 s
+  Run 5: Cost = 1235401.91, Time = 0.616475 s
+  Run 6: Cost = 1235401.91, Time = 0.616922 s
+  Run 7: Cost = 1235401.91, Time = 0.611491 s
+  Run 8: Cost = 1235401.91, Time = 0.629097 s
+  Run 9: Cost = 1235401.91, Time = 0.616669 s
+  Run 10: Cost = 1235401.91, Time = 0.617003 s
+
+--- SA with 3-Opt (initialized by Christofides) ---
+  SA Run 1/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 1 completed: Cost = 1144034.93, Time = 137.945s
+  SA Run 2/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 2 completed: Cost = 1143393.99, Time = 137.601s
+  SA Run 3/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 3 completed: Cost = 1142514.29, Time = 136.337s
+  SA Run 4/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 4 completed: Cost = 1145103.40, Time = 137.643s
+  SA Run 5/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 5 completed: Cost = 1142135.05, Time = 137.501s
+  SA Run 6/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 6 completed: Cost = 1143693.07, Time = 135.111s
+  SA Run 7/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 7 completed: Cost = 1142478.67, Time = 138.409s
+  SA Run 8/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 8 completed: Cost = 1141814.68, Time = 139.568s
+  SA Run 9/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 9 completed: Cost = 1140393.67, Time = 136.903s
+  SA Run 10/10 progress (T_init/best updates from SA_3opt):
+  -> SA Run 10 completed: Cost = 1141510.70, Time = 138.703s
+
+
+====== SUMMARY for kz9976.tsp ======
+Optimal Cost: 1061881.00
+
+--- 2-Approximation Algorithm ---
+Avg Cost:   1457223.5174 (Ratio: 1.3723)
+Best Cost:  1457223.5174 (Ratio: 1.3723)
+Avg Time:   0.627111 s
+
+--- Christofides (Greedy Matching) ---
+Avg Cost:   1235401.912197 (Ratio: 1.163408)
+Best Cost:  1235401.912197 (Ratio: 1.163408)
+Avg Time:   0.619550 s
+
+--- SA with 3-Opt ---
+Avg Cost:   1142707.244719 (Ratio: 1.076115)
+Best Cost:  1140393.668388 (Ratio: 1.073936)
+Avg Time:   137.572221 s
+====================================
+
+=== Runtime Measurement for mona-lisa100K.tsp ===
+Dataset size: 100000 cities
+Known Optimal Cost: 5757191.00
+Number of runs per algorithm: 1
+
+
+--- 2-Approximation Algorithm ---
+  Run 1: Cost = 8395215.02, Time = 35.834861 s
+
+--- Christofides (Greedy Matching) ---
+  Run 1: Cost = 7040658.07, Time = 38.108060 s
+
+--- SA with 3-Opt (initialized by Christofides) ---
+  SA Run 1/1 progress (T_init/best updates from SA_3opt):
+  -> SA Run 1 completed: Cost = 7025615.77, Time = 288.782s
+
+
+====== SUMMARY for mona-lisa100K.tsp ======
+Optimal Cost: 5757191.00
+
+--- 2-Approximation Algorithm ---
+Avg Cost:   8395215.0189 (Ratio: 1.4582)
+Best Cost:  8395215.0189 (Ratio: 1.4582)
+Avg Time:   35.834861 s
+
+--- Christofides (Greedy Matching) ---
+Avg Cost:   7040658.074944 (Ratio: 1.222933)
+Best Cost:  7040658.074944 (Ratio: 1.222933)
+Avg Time:   38.108060 s
+
+--- SA with 3-Opt ---
+Avg Cost:   7025615.772343 (Ratio: 1.220320)
+Best Cost:  7025615.772343 (Ratio: 1.220320)
+Avg Time:   288.781704 s
+====================================
+
+--------------------------------------------------
+
+====== SUMMARY for a280.tsp ======
+Optimal Cost: 2579.00
+
+--- 2-Approximation Algorithm ---
+Avg Cost:   3484.8534 (Ratio: 1.3512)
+Best Cost:  3484.8534 (Ratio: 1.3512)
+Avg Time:   0.000804 s
+
+--- Christofides (Greedy Matching) ---
+Avg Cost:   2887.300737 (Ratio: 1.119543)
+Best Cost:  2887.300737 (Ratio: 1.119543)
+Avg Time:   0.000802 s
+
+--- SA with 3-Opt ---
+Avg Cost:   2605.309362 (Ratio: 1.010201)
+Best Cost:  2593.204159 (Ratio: 1.005508)
+Avg Time:   8.807809 s
+====================================
+====== SUMMARY for xql662.tsp ======
+Optimal Cost: 2513.00
+
+--- 2-Approximation Algorithm ---
+Avg Cost:   3526.5416 (Ratio: 1.4033)
+Best Cost:  3526.5416 (Ratio: 1.4033)
+Avg Time:   0.005934 s
+
+--- Christofides (Greedy Matching) ---
+Avg Cost:   2923.533134 (Ratio: 1.163363)
+Best Cost:  2923.533134 (Ratio: 1.163363)
+Avg Time:   0.005917 s
+
+--- SA with 3-Opt ---
+Avg Cost:   2597.924748 (Ratio: 1.033794)
+Best Cost:  2565.279806 (Ratio: 1.020803)
+Avg Time:   24.528782 s
+====================================
+====== SUMMARY for kz9976.tsp ======
+Optimal Cost: 1061881.00
+
+--- 2-Approximation Algorithm ---
+Avg Cost:   1457223.5174 (Ratio: 1.3723)
+Best Cost:  1457223.5174 (Ratio: 1.3723)
+Avg Time:   0.627111 s
+
+--- Christofides (Greedy Matching) ---
+Avg Cost:   1235401.912197 (Ratio: 1.163408)
+Best Cost:  1235401.912197 (Ratio: 1.163408)
+Avg Time:   0.619550 s
+
+--- SA with 3-Opt ---
+Avg Cost:   1142707.244719 (Ratio: 1.076115)
+Best Cost:  1140393.668388 (Ratio: 1.073936)
+Avg Time:   137.572221 s
+====================================
+====== SUMMARY for mona-lisa100K.tsp ======
+Optimal Cost: 5757191.00
+
+--- 2-Approximation Algorithm ---
+Avg Cost:   8395215.0189 (Ratio: 1.4582)
+Best Cost:  8395215.0189 (Ratio: 1.4582)
+Avg Time:   35.834861 s
+
+--- Christofides (Greedy Matching) ---
+Avg Cost:   7040658.074944 (Ratio: 1.222933)
+Best Cost:  7040658.074944 (Ratio: 1.222933)
+Avg Time:   38.108060 s
+
+--- SA with 3-Opt ---
+Avg Cost:   7025615.772343 (Ratio: 1.220320)
+Best Cost:  7025615.772343 (Ratio: 1.220320)
+Avg Time:   288.781704 s
+====================================

@@ -5,7 +5,7 @@ LDFLAGS = -lm
 
 SRC = my_algo.cc
 
-TARGET = my_algo_optimized
+TARGET = my_algo
 
 all: $(TARGET)
 

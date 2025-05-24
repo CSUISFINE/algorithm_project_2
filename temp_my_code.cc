@@ -73,10 +73,10 @@ double prim_mst(const vector<City>& cities, vector<vector<pair<int, double>>>& a
         mst_weight += d;
         edges++;
 
-        if (edges % 1000 == 0) { 
-            cout << "The " << edges << "th node (index: " << u << ", ID: " << cities[u].id 
-             << ") was added to MST. Total nodes currently in MST: " << edges << endl;
-        }
+        // if (edges % 1000 == 0) { 
+        //     cout << "The " << edges << "th node (index: " << u << ", ID: " << cities[u].id 
+        //      << ") was added to MST. Total nodes currently in MST: " << edges << endl;
+        // }
 
         if (parent[u] != -1) {
             adj_list[u].push_back({parent[u], d});
@@ -382,7 +382,7 @@ struct SAParameters {
     double T_final;
     double alpha;
     double K;
-    int L_multiplier;
+    double L_multiplier;
     double T_transition_factor;
 };
 
@@ -511,15 +511,12 @@ void two_approximation(vector<vector<pair<int, double>>>& adj_list_2_aprx) {
     }
 }
 
-// Function to measure runtime of 2-approximation algorithm
 pair<double, double> measure_2approx_runtime(const vector<City>& cities) {
     auto start = high_resolution_clock::now();
     
-    // MST construction
     vector<vector<pair<int, double>>> adj_list_mst;
     double mst_w = prim_mst(cities, adj_list_mst);
     
-    // 2-approximation algorithm
     vector<vector<pair<int, double>>> adj_list_2_aprx = adj_list_mst;
     two_approximation(adj_list_2_aprx);
     vector<int> euler_circ_2_aprx = euler_circuit(adj_list_2_aprx);
@@ -529,30 +526,25 @@ pair<double, double> measure_2approx_runtime(const vector<City>& cities) {
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
     
-    return {final_cost_2_aprx, duration.count() / 1000000.0}; // Return time in seconds
+    return {final_cost_2_aprx, duration.count() / 1000000.0};
 }
 
-// Function to measure runtime of Christofides with greedy matching
 pair<double, double> measure_christofides_runtime(const vector<City>& cities) {
     auto start = high_resolution_clock::now();
     
-    // MST construction
     vector<vector<pair<int, double>>> adj_list_mst;
     double mst_w = prim_mst(cities, adj_list_mst);
-    
-    // Find odd degree vertices
+
     vector<int> odd_degree_vertices_indices;
     for(int i=0; i < cities.size(); ++i) {
         if(adj_list_mst[i].size() % 2 != 0) {
             odd_degree_vertices_indices.push_back(i);
         }
     }
-    
-    // Greedy perfect matching
+
     pair<vector<pair<int, int>>, double> matching_result = greedy_perfect_matching(odd_degree_vertices_indices, cities);
     vector<pair<int, int>> matched_pairs = matching_result.first;
     
-    // Add matching edges to MST
     vector<vector<pair<int, double>>> adj_list_pm = adj_list_mst;
     for (const auto& pm_edge : matched_pairs) {
         int u = pm_edge.first;
@@ -562,7 +554,6 @@ pair<double, double> measure_christofides_runtime(const vector<City>& cities) {
         adj_list_pm[v].push_back({u, weight});
     }
     
-    // Create Hamiltonian circuit
     vector<int> euler_circ_pm = euler_circuit(adj_list_pm);
     vector<int> hamil_circ_pm = hamilton_circuit(euler_circ_pm, cities.size());
     double final_cost_pm = calculate_cost(hamil_circ_pm, cities);
@@ -573,11 +564,9 @@ pair<double, double> measure_christofides_runtime(const vector<City>& cities) {
     return {final_cost_pm, duration.count() / 1000000.0}; // Return time in seconds
 }
 
-// Function to measure runtime of SA with 3-opt
 pair<double, double> measure_SA_runtime(const vector<City>& cities, const SAParameters& params) {
     auto start = high_resolution_clock::now();
     
-    // First get initial tour from Christofides
     vector<vector<pair<int, double>>> adj_list_mst;
     double mst_w = prim_mst(cities, adj_list_mst);
     
@@ -603,10 +592,7 @@ pair<double, double> measure_SA_runtime(const vector<City>& cities, const SAPara
     vector<int> euler_circ_pm = euler_circuit(adj_list_pm);
     vector<int> hamil_circ_pm = hamilton_circuit(euler_circ_pm, cities.size());
     
-    // Calculate average delta E
     double avg_delta_E_pos = calculate_avg_delta_E_positive(hamil_circ_pm, cities, 1000);
-    
-    // Run SA with 3-opt
     vector<int> SA3opt_circ = SA_3opt(hamil_circ_pm, cities, avg_delta_E_pos, params);
     double final_cost_SA = calculate_cost(SA3opt_circ, cities);
     
@@ -616,7 +602,6 @@ pair<double, double> measure_SA_runtime(const vector<City>& cities, const SAPara
     return {final_cost_SA, duration.count() / 1000000.0}; // Return time in seconds
 }
 
-// Add this function to measure and display average runtimes
 void measure_algorithm_runtimes(const string& filename, int num_runs, const map<string, SAParameters>& all_sa_params, const map<string, double>& optimal_solutions) {
     vector<City> cities = load_tsp(filename);
     
@@ -638,7 +623,6 @@ void measure_algorithm_runtimes(const string& filename, int num_runs, const map<
     cout << "Known Optimal Cost: " << fixed << setprecision(2) << optimal_cost << endl;
     cout << "Number of runs per algorithm: " << num_runs << endl << endl;
     
-    // --- 2-approximation algorithm ---
     cout << "\n--- 2-Approximation Algorithm ---" << endl;
     double total_2approx_time = 0.0;
     double total_2approx_cost = 0.0;
@@ -658,7 +642,6 @@ void measure_algorithm_runtimes(const string& filename, int num_runs, const map<
     double avg_2approx_time = total_2approx_time / num_runs;
     double avg_2approx_cost = total_2approx_cost / num_runs;
     
-    // --- Christofides with greedy matching ---
     cout << "\n--- Christofides (Greedy Matching) ---" << endl;
     double total_christofides_time = 0.0;
     double total_christofides_cost = 0.0;
@@ -678,7 +661,6 @@ void measure_algorithm_runtimes(const string& filename, int num_runs, const map<
     double avg_christofides_time = total_christofides_time / num_runs;
     double avg_christofides_cost = total_christofides_cost / num_runs;
     
-    // --- SA with 3-opt ---
     cout << "\n--- SA with 3-Opt (initialized by Christofides) ---" << endl;
     SAParameters current_sa_params;
     auto it_sa = all_sa_params.find(filename);
@@ -713,7 +695,7 @@ void measure_algorithm_runtimes(const string& filename, int num_runs, const map<
     if (optimal_cost > 0) {
         cout << "Optimal Cost: " << fixed << setprecision(2) << optimal_cost << endl;
     }
-    cout << fixed << setprecision(4); // Default precision for ratios and costs in summary
+    cout << fixed << setprecision(4);
     
     cout << "\n--- 2-Approximation Algorithm ---" << endl;
     cout << "Avg Cost:   " << avg_2approx_cost;
@@ -744,7 +726,6 @@ void measure_algorithm_runtimes(const string& filename, int num_runs, const map<
     cout << "====================================" << endl;
 }
 
-// Add this to your main function or create a separate test file
 int main() {
     // struct SAParameters {
     //     double P_init_accept;
@@ -780,32 +761,32 @@ int main() {
     dataset_sa_params["kz9976.tsp"] = {
         0.5,
         0.1,
-        0.99999,
-        0.7,
+        0.99,
+        0.003,
         5,
-        0.6
+        0.5
     };
     
+    // Parameters for mona-lisa100K.tsp
     dataset_sa_params["mona-lisa100K.tsp"] = {
-        0.4,
+        0.5,
         0.1,
-        0.99999,
-        0.7,
-        5,
-        0.6
+        0.95,
+        0.01,
+        0.5,
+        0.5
     };
 
     map<string, double> optimal_solutions;
     optimal_solutions["a280.tsp"] = 2579;
-    optimal_solutions["xql662.tsp"] = 25134;
-    optimal_solutions["kz9976.tsp"] = 1061882;
+    optimal_solutions["xql662.tsp"] = 2513;
+    optimal_solutions["kz9976.tsp"] = 1061881;
     optimal_solutions["mona-lisa100K.tsp"] = 5757191;
     
-    // Test with different datasets
-    vector<string> test_files = {"a280.tsp", "xql662.tsp", "kz9976.tsp"};
+    vector<string> test_files = {"mona-lisa100K.tsp"};
     
     for (const string& filename : test_files) {
-        measure_algorithm_runtimes(filename, 10, dataset_sa_params, optimal_solutions);
+        measure_algorithm_runtimes(filename, 1, dataset_sa_params, optimal_solutions);
         cout << "\n" << string(50, '-') << "\n" << endl;
     }
     

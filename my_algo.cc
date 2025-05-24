@@ -393,9 +393,9 @@ vector<int> SA_3opt(const vector<int>& initial_circuit, const vector<City>& citi
     double T_init = -avg_delta_E_pos / log(P_init_accept);
     cout << "T_init: "<< T_init << endl;
     double T_final = 0.1;
-    double alpha = 0.992;
-    double K = 0.003;
-    int L = num_cities * 10;
+    double alpha = 0.95;
+    double K = 0.01;
+    int L = num_cities * 0.5;
     double T_high_transition = T_init * 0.5;
     int iter = 0;
     double T = T_init;
@@ -499,7 +499,7 @@ double calculate_avg_delta_E_positive(const vector<int>& initial_circuit, const 
 
 
 int main() {
-    string filename = "kz9976.tsp";
+    string filename = "mona-lisa100K.tsp";
     vector<City> cities = load_tsp(filename);
 
     if (cities.empty()) {
@@ -549,7 +549,6 @@ int main() {
     // }
     double final_cost_SA2opt = calculate_cost(SA2opt_circ, cities);
     cout << "\nTotal TSP tour cost (SA with 3-opt): " << fixed << setprecision(2) << final_cost_SA2opt << endl;
-    cout << "\nActual runtime of My algorithm (SA with 3-opt): " << fixed << setprecision(2) << final_cost_SA2opt << endl;
     cout << "\nApproximation Ratio of My algorithm (SA with 3-opt / optimal value): " << fixed << setprecision(2) << final_cost_SA2opt / optimal_tour_cost << endl;
     
     return 0;
