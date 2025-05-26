@@ -784,9 +784,10 @@ int main() {
     optimal_solutions["mona-lisa100K.tsp"] = 5757191;
     
     vector<string> test_files = {"a280.tsp", "xql662.tsp", "kz9976.tsp", "mona-lisa100K.tsp"};
+    int num_runs = 10;
     
     for (const string& filename : test_files) {
-        measure_algorithm_runtimes(filename, 1, dataset_sa_params, optimal_solutions);
+        measure_algorithm_runtimes(filename, num_runs, dataset_sa_params, optimal_solutions);
         cout << "\n" << string(50, '-') << "\n" << endl;
     }
     
